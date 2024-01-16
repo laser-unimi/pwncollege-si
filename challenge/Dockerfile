@@ -168,7 +168,7 @@ RUN mv /usr/lib/code-server/lib/vscode/node_modules/@vscode/ripgrep/bin/rg /usr/
     chmod +x /usr/lib/code-server/lib/vscode/node_modules/@vscode/ripgrep/bin/rg
 
 RUN git clone https://github.com/aquynh/capstone /opt/capstone && cd /opt/capstone && ./make.sh && ./make.sh install
-RUN git clone https://github.com/radareorg/radare2 /opt/radare2 && cd /opt/radare2 && sys/install.sh
+#RUN git clone https://github.com/radareorg/radare2 /opt/radare2 && cd /opt/radare2 && sys/install.sh
 RUN git clone https://github.com/aflplusplus/aflplusplus /opt/aflplusplus && cd /opt/aflplusplus && make distrib && make install
 RUN git clone https://github.com/yrp604/rappel /opt/rappel && cd /opt/rappel && make && cp bin/rappel /usr/bin/rappel
 RUN wget https://github.com/0vercl0k/rp/releases/download/v2.0.2/rp-lin-x64 -O /usr/bin/rp++ && chmod +x /usr/bin/rp++
@@ -177,6 +177,7 @@ RUN pip install --force-reinstall git+https://github.com/Gallopsled/pwntools#egg
 
 RUN git clone https://github.com/pwndbg/pwndbg /opt/pwndbg
 RUN git clone https://github.com/hugsy/gef /opt/gef
+RUN git clone https://github.com/longld/peda /opt/peda
 RUN git clone https://github.com/jerdna-regeiz/splitmind /opt/splitmind
 
 RUN ln -s /usr/bin/ipython3 /usr/bin/ipython
@@ -193,9 +194,9 @@ RUN apt-get update && \
                        wireshark && \
     apt-get -y remove --purge at-spi2-core tumbler gvfs-* && \
     apt-get -y autoremove
-RUN wget -q -O - https://github.com$(curl https://github.com/angr/angr-management/releases | grep angr-management-ubuntu.tar.gz | head -n1 | cut -d'"' -f2) | tar xvz -C /opt
+#RUN wget -q -O - https://github.com$(curl https://github.com/angr/angr-management/releases | grep angr-management-ubuntu.tar.gz | head -n1 | cut -d'"' -f2) | tar xvz -C /opt
 RUN wget -q -O /tmp/ghidra.zip https://github.com/NationalSecurityAgency/ghidra/releases/download/Ghidra_10.1.5_build/ghidra_10.1.5_PUBLIC_20220726.zip && cd /opt && unzip /tmp/ghidra.zip && mv /opt/ghidra_10.1.5_PUBLIC /opt/ghidra
-COPY desktop/angr-management.desktop /usr/share/applications/
+#COPY desktop/angr-management.desktop /usr/share/applications/
 COPY desktop/Ghidra.desktop /usr/share/applications/
 COPY desktop/pwncollege_background.jpg /usr/share/backgrounds/
 COPY desktop/xfce4 /usr/share/desktop-base/profiles/xdg-config/xfce4
@@ -221,8 +222,8 @@ RUN gcc /opt/pwn.college/setuid_python.c -o /opt/pwn.college/python && \
 RUN ln -s /opt/pwn.college/vm/vm /usr/local/bin/vm
 
 RUN ln -sf /home/hacker/.tmux.conf /root/.tmux.conf && \
-    ln -sf /home/hacker/.gdbinit /root/.gdbinit && \
-    ln -sf /home/hacker/.radare2rc /root/.radare2rc
+    ln -sf /home/hacker/.gdbinit /root/.gdbinit
+#    ln -sf /home/hacker/.radare2rc /root/.radare2rc
 
 RUN echo 'pwn.college{uninitialized}' > /flag && \
     chmod 400 /flag
