@@ -1,0 +1,8 @@
+#Decommentare la riga del plugin da attivare
+
+#GEF
+#source /opt/gef/gef.py
+
+#PEDA
+#source /opt/peda/peda.py
+
