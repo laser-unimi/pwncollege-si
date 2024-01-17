@@ -14,8 +14,8 @@ RUN apt-get update && \
                        openssh-server
 
 RUN curl -fsSL https://get.docker.com | /bin/sh
-
-RUN pip install docker docker-compose
+RUN pip install docker==6.1.3
+RUN pip install docker-compose
 
 RUN git clone --branch 3.4.0 https://github.com/CTFd/CTFd /opt/CTFd
 
