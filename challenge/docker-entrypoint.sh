@@ -1,5 +1,11 @@
 #!/bin/sh
 
+mkdir -p "/home/hacker/exam"
+cp /opt/pwn.college/*.pdf /home/hacker/exam
+cp /opt/pwn.college/pwntools-cheatsheet.md /home/hacker/exam
+cp /opt/pwn.college/template.py /home/hacker/exam
+cp /opt/pwn.college/gdbinit /home/hacker/.gdbinit
+
 find /challenge -name '*.ko' -exec false {} + || vm start
 
 mkdir /tmp/code-server

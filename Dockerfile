@@ -3,6 +3,7 @@ FROM ubuntu:20.04
 ENV DEBIAN_FRONTEND noninteractive
 ENV LC_CTYPE=C.UTF-8
 
+ADD etc/apt/sources.list /etc/apt/sources.list
 RUN apt-get update && \
     apt-get install -y build-essential \
                        git \
@@ -13,6 +14,8 @@ RUN apt-get update && \
                        python3-pip \
                        openssh-server
 
+RUN pip install "cython<3.0.0" wheel
+RUN pip install "pyyaml==5.4.1" --no-build-isolation
 RUN curl -fsSL https://get.docker.com | /bin/sh
 RUN pip install docker==6.1.3
 RUN pip install docker-compose

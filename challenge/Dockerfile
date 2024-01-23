@@ -4,7 +4,7 @@ RUN rm /etc/dpkg/dpkg.cfg.d/excludes
 
 ENV DEBIAN_FRONTEND noninteractive
 ENV LC_CTYPE=C.UTF-8
-
+COPY sources.list /etc/apt/
 RUN dpkg --add-architecture i386
 RUN apt-get update && \
     dpkg -l | grep ^ii | cut -d' ' -f3 | grep -v '^libgcc-s1:amd64$' | xargs apt-get install -y --reinstall && \
@@ -155,6 +155,8 @@ RUN mkdir /opt/gdb && wget -O - https://ftp.gnu.org/gnu/gdb/gdb-11.1.tar.gz | ta
 
 RUN curl -fsSL https://code-server.dev/install.sh | /bin/sh /dev/stdin
 RUN mkdir -p /opt/code-server/extensions && code-server --extensions-dir=/opt/code-server/extensions --install-extension ms-python.python
+RUN code-server --extensions-dir=/opt/code-server/extensions --install-extension mathematic.vscode-pdf
+RUN code-server --extensions-dir=/opt/code-server/extensions --install-extension analytic-signal.preview-pdf
 RUN mv /usr/lib/code-server/lib/vscode/node_modules/@vscode/ripgrep/bin/rg /usr/lib/code-server/lib/vscode/node_modules/@vscode/ripgrep/bin/rg.orig && \
     echo '#!/usr/bin/python \n\
           \n\
@@ -216,6 +218,7 @@ COPY .tmux.conf /opt/pwn.college/.tmux.conf
 COPY .gdbinit /opt/pwn.college/.gdbinit
 COPY .radare2rc /opt/pwn.college/.radare2rc
 
+
 RUN gcc /opt/pwn.college/setuid_python.c -o /opt/pwn.college/python && \
     rm /opt/pwn.college/setuid_python.c
 
@@ -236,3 +239,4 @@ RUN chmod u+s /opt/pwn.college/python /opt/pwn.college/vm/vm
 
 USER hacker
 WORKDIR /home/hacker
+ADD --chown=hacker:hacker --chmod=444 esame-si/* /opt/pwn.college/
