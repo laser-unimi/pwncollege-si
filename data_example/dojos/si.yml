@@ -1,0 +1,64 @@
+name: "Esercizi"
+
+
+modules:
+  - name: Buffer Overflows
+    id: babymem
+    challenges:
+      - category: babymem
+        names:
+              - level1.0
+              - level1.1
+              - level2.0
+              - level2.1
+              - level3.0
+              - level3.1
+              - level6.0
+              - level6.1
+              - level7.0
+              - level7.1
+              - level8.0
+              - level8.1
+              - level9.0
+              - level9.1
+              - level10.0
+              - level10.1
+              - level12.0
+              - level12.1
+              - level14.0
+              - level14.1
+              - level15.0
+              - level15.1
+
+  - name: Rerturn Oriented Programming
+    id: babyrop
+    challenges:
+      - category: babyrop
+        names:
+              - level1.0
+              - level1.1
+              - level2.0
+              - level2.1
+              - level3.0
+              - level3.1
+              - level4.0
+              - level4.1
+              - level5.0
+              - level5.1
+              - level6.0
+              - level6.1
+              - level7.0
+              - level7.1
+              - level8.0
+              - level8.1
+
+  - name: Program Exploitation MOD I
+    id: toddlerone
+    challenges:
+      - category: toddlerone
+        names:
+              - level1.0
+              - level2.0
+              - level3.0
+              - level4.0
+              - level5.0
