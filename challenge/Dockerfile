@@ -155,8 +155,8 @@ RUN mkdir /opt/gdb && wget -O - https://ftp.gnu.org/gnu/gdb/gdb-11.1.tar.gz | ta
 
 RUN curl -fsSL https://code-server.dev/install.sh | /bin/sh /dev/stdin
 RUN mkdir -p /opt/code-server/extensions && code-server --extensions-dir=/opt/code-server/extensions --install-extension ms-python.python
-RUN code-server --extensions-dir=/opt/code-server/extensions --install-extension mathematic.vscode-pdf
-RUN code-server --extensions-dir=/opt/code-server/extensions --install-extension analytic-signal.preview-pdf
+#RUN code-server --extensions-dir=/opt/code-server/extensions --install-extension mathematic.vscode-pdf
+#RUN code-server --extensions-dir=/opt/code-server/extensions --install-extension analytic-signal.preview-pdf
 RUN mv /usr/lib/code-server/lib/vscode/node_modules/@vscode/ripgrep/bin/rg /usr/lib/code-server/lib/vscode/node_modules/@vscode/ripgrep/bin/rg.orig && \
     echo '#!/usr/bin/python \n\
           \n\
