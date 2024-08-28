@@ -14,6 +14,7 @@ RUN apt-get update && \
                        python3-pip \
                        openssh-server
 
+RUN pip install 'requests==2.31.0'
 RUN pip install "cython<3.0.0" wheel
 RUN pip install "pyyaml==5.4.1" --no-build-isolation
 RUN curl -fsSL https://get.docker.com | /bin/sh
